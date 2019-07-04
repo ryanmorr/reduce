@@ -9,4 +9,11 @@ export default function reduce(obj, value, callback) {
         }
         return value;
     }
+    if (typeof obj === 'object') {
+        let i = 0;
+        for (let entry of Object.entries(obj)) {
+            value = callback(value, entry, i++, obj);
+        }
+        return value;
+    }
 }
