@@ -1,19 +1,21 @@
+function isIterable(obj) {
+    return typeof obj[Symbol.iterator] === 'function';
+}
+
+function isPlainObject(obj) {
+    if (!obj || typeof obj !== 'object') {
+        return false;
+    }
+    const prototype = Object.getPrototypeOf(obj);
+    return prototype === null || prototype === Object.getPrototypeOf({});
+}
+
 export default function reduce(obj, value, callback) {
-    if (Array.isArray(obj)) {
-        return obj.reduce(callback, value);
+    if (isPlainObject(obj)) {
+        obj = Object.entries(obj);
     }
-    if (typeof obj[Symbol.iterator] === 'function') {
-        let i = 0;
-        for (let entry of obj) {
-            value = callback(value, entry, i++, obj);
-        }
-        return value;
+    if (isIterable(obj)) {
+        obj = Array.from(obj);
     }
-    if (typeof obj === 'object') {
-        let i = 0;
-        for (let entry of Object.entries(obj)) {
-            value = callback(value, entry, i++, obj);
-        }
-        return value;
-    }
+    return obj.reduce(callback, value);
 }

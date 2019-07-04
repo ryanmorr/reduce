@@ -6,9 +6,8 @@ describe('reduce', () => {
         const array = [1, 2, 3];
         let currentIndex = 0;
 
-        const returnValue = reduce(array, 0, (acc, val, i, obj) => {
+        const returnValue = reduce(array, 0, (acc, val, i) => {
             expect(currentIndex).to.equal(i);
-            expect(obj).to.equal(array);
             expect(array[currentIndex]).to.equal(val);
             if (i === 0) {
                 expect(acc).to.equal(0);
@@ -31,9 +30,8 @@ describe('reduce', () => {
         const map = new Map([['a', 1], ['b', 2], ['c', 3]]);
         let currentIndex = 0;
 
-        const returnValue = reduce(map, 0, (acc, [key, val], i, obj) => {
+        const returnValue = reduce(map, 0, (acc, [key, val], i) => {
             expect(currentIndex).to.equal(i);
-            expect(obj).to.equal(map);
             expect(map.get(key)).to.equal(val);
             if (i === 0) {
                 expect(acc).to.equal(0);
@@ -59,9 +57,8 @@ describe('reduce', () => {
         const object = {a: 1, b: 2, c: 3};
         let currentIndex = 0;
 
-        const returnValue = reduce(object, 0, (acc, [key, val], i, obj) => {
+        const returnValue = reduce(object, 0, (acc, [key, val], i) => {
             expect(currentIndex).to.equal(i);
-            expect(obj).to.equal(object);
             expect(object[key]).to.equal(val);
             if (i === 0) {
                 expect(acc).to.equal(0);
