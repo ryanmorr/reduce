@@ -26,6 +26,35 @@ describe('reduce', () => {
         expect(returnValue).to.equal(6);
     });
 
+    it('should reduce an array-like object', () => {
+        function args() {
+            return arguments;
+        }
+
+        const arrayLike = args(1, 2, 3);
+
+        let currentIndex = 0;
+
+        const returnValue = reduce(arrayLike, 0, (acc, val, i) => {
+            expect(currentIndex).to.equal(i);
+            expect(arrayLike[currentIndex]).to.equal(val);
+            if (i === 0) {
+                expect(acc).to.equal(0);
+                expect(val).to.equal(1);
+            } else if (i === 1) {
+                expect(acc).to.equal(1);
+                expect(val).to.equal(2);
+            } else if (i === 2) {
+                expect(acc).to.equal(3);
+                expect(val).to.equal(3);
+            }
+            currentIndex++;
+            return acc + val;
+        });
+
+        expect(returnValue).to.equal(6);
+    });
+
     it('should reduce an iterable object', () => {
         const map = new Map([['a', 1], ['b', 2], ['c', 3]]);
         let currentIndex = 0;
@@ -53,7 +82,7 @@ describe('reduce', () => {
         expect(returnValue).to.equal(6);
     });
 
-    it('should reduce an enumerable object', () => {
+    it('should reduce a plain enumerable object', () => {
         const object = {a: 1, b: 2, c: 3};
         let currentIndex = 0;
 

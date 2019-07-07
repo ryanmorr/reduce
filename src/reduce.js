@@ -10,12 +10,16 @@ function isPlainObject(obj) {
     return prototype === null || prototype === Object.getPrototypeOf({});
 }
 
+function isArrayLike(obj) {
+    var length = obj != null && obj.length;
+    return typeof length === 'number' && length >= 0 && length % 1 === 0;
+}
+
 export default function reduce(obj, value, callback) {
-    if (isPlainObject(obj)) {
-        obj = Object.entries(obj);
-    }
-    if (isIterable(obj)) {
+    if (!Array.isArray(obj) && (isIterable(obj) || isArrayLike(obj))) {
         obj = Array.from(obj);
+    } else if (isPlainObject(obj)) {
+        obj = Object.entries(obj);
     }
     return obj.reduce(callback, value);
 }
