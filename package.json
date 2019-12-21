@@ -1,6 +1,6 @@
 {
   "name": "@ryanmorr/reduce",
-  "description": "Reduce any iterable or enumerable object",
+  "description": "Array's reduce for all iterable and enumerable objects",
   "version": "0.1.0",
   "license": "Unlicense",
   "author": "Ryan Morr",
