@@ -23,25 +23,25 @@ import { reduce, reduceRight } from '@ryanmorr/reduce';
 
 // Works for arrays obviously
 const array = [
-	'1',
-	'2',
-	'3'
+    '1',
+    '2',
+    '3'
 ];
 reduce(array, '', (acc, val, idx, obj) => acc + val); // => "123"
 
 // Works for iterables like maps, sets, nodelists, etc.
 const map = new Map([
-	['a', '1'],
-	['b', '2'],
-	['c', '3']
+    ['a', '1'],
+    ['b', '2'],
+    ['c', '3']
 ]);
 reduce(map, '', (acc, [key, val], idx, obj) => acc + val); // => "123"
 
 // Works for enumerable key/value objects
 const object = {
-	a: '1',
-	b: '2',
-	c: '3'
+    a: '1',
+    b: '2',
+    c: '3'
 };
 reduceRight(object, '', (acc, [key, val], idx, obj) => acc + val); // => "321"
 ```
