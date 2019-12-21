@@ -1,5 +1,5 @@
 {
-  "name": "reduce",
+  "name": "@ryanmorr/reduce",
   "description": "Reduce any iterable or enumerable object",
   "version": "0.1.0",
   "license": "Unlicense",
