@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { reduceRight } from '../../src/reduce';
+import { reduceRight } from '../../src/reduce.js';
 
 describe('reduceRight', () => {
     it('should reduce an array', () => {

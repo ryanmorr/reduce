@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { reduce } from '../../src/reduce';
+import { reduce } from '../../src/reduce.js';
 
 describe('reduce', () => {
     it('should reduce an array', () => {

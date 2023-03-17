@@ -7,29 +7,42 @@
   "homepage": "https://github.com/ryanmorr/reduce",
   "repository": "github:ryanmorr/reduce",
   "bugs": "https://github.com/ryanmorr/reduce/issues",
-  "publishConfig": {
-    "access": "public"
+  "keywords": [
+    "javascript",
+    "array",
+    "iterable",
+    "enumerable",
+    "reduce"
+  ],
+  "type": "module",
+  "main": "dist/cjs/reduce.js",
+  "module": "dist/esm/reduce.js",
+  "browser": "dist/umd/reduce.js",
+  "exports": {
+    ".": {
+      "browser": "./dist/umd/reduce.js",
+      "import": "./dist/esm/reduce.js",
+      "require": "./dist/cjs/reduce.js"
+    }
   },
-  "main": "dist/reduce.cjs.js",
-  "module": "dist/reduce.esm.js",
-  "browser": "dist/reduce.umd.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "lint": "./node_modules/.bin/eslint src/** test/specs/**",
-    "test": "mocha test/specs/**/*.js --require @babel/register --reporter spec",
+    "lint": "eslint src/** test/specs/**",
+    "test": "mocha test/specs/**/*.js --reporter spec",
     "build": "rollup -c"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.7",
-    "@babel/preset-env": "^7.7.7",
-    "@babel/register": "^7.7.7",
-    "babel-eslint": "^10.0.3",
-    "chai": "^4.2.0",
-    "eslint": "^5.16.0",
-    "mocha": "^6.2.2",
-    "rollup": "^1.27.13",
-    "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-babel-minify": "^8.0.0",
-    "rollup-plugin-commonjs": "^9.3.4",
-    "rollup-plugin-node-resolve": "^4.2.3"
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-terser": "^0.4.0",
+    "chai": "^4.3.7",
+    "eslint": "^8.33.0",
+    "mocha": "^10.2.0",
+    "rollup": "^3.14.0",
+    "rollup-plugin-generate-package-json": "^3.2.0",
+    "sinon": "^15.0.1",
+    "terser": "^5.16.3"
   }
 }
