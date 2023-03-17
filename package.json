@@ -1,7 +1,7 @@
 {
   "name": "@ryanmorr/reduce",
   "description": "Array's reduce for all iterable and enumerable objects",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "Unlicense",
   "author": "Ryan Morr",
   "homepage": "https://github.com/ryanmorr/reduce",
